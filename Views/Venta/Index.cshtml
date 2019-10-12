@@ -1,0 +1,161 @@
+    @model IEnumerable<punto.Models.Venta>
+
+        @{    
+             ViewData["Title"] = "Ventas - ";    
+        }   
+
+    <section class="content-header">
+        <h1>
+        Ventas
+        </h1>
+        <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Inicio </a></li>
+        <li class="active">Ventas</li>
+        </ol>
+        
+    </section>
+    <!-- Main content -->
+    <section class="content">
+        <div class="row">
+        <div class="col-xs-12">
+            <div class="box">
+            <div class="box-header">
+                <h3 class="box-title">Manejar Venta</h3>
+                <a href="~/Venta/Create"><button type="button" class="btn btn-success pull-right">Agregar Venta</button></a>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+                <table id="example1" class="table table-bordered table-striped">
+                <thead>
+                <tr> 
+                    <th style="display:none;">Id</th>                 
+                    <th style="text-align: center;">Producto</th>
+                    <th style="text-align: center;">Precio</th>
+                    <th style="text-align: center;">Cantidad</th>
+                    <th style="text-align: center;">Subtotal</th>
+                    <th style="text-align: center;">Cliente</th>
+                    <th style="text-align: center;">Fecha</th>
+                    <th style="text-align: center;">Accion</th>
+                </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td style="display:none;">@Html.DisplayFor(modelItem => item.IdVenta)</td>
+                            <td>@Html.DisplayFor(modelItem => item.Producto)</td>
+                            <td style="text-align: center;">Q @Html.DisplayFor(modelItem => item.Precio)</td>
+                            <td style="text-align: center;">@Html.DisplayFor(modelItem => item.Cantidad)</td>
+                            <td style="text-align: center;">Q @Html.DisplayFor(modelItem => item.Total)</td>
+                            <td style="text-align: center;">@Html.DisplayFor(modelItem => item.Cliente)</td>
+                            <td style="text-align: center;">@Html.DisplayFor(modelItem => item.Fecha)</td>                                            
+                            <td style="text-align: center;"><a href="" onclick="Delete('@item.IdVenta')"><img src="../dist/img/eliminar.png" width="25" height="25"/></a></td>
+                        </tr>
+                    }
+                </table>
+
+                <div class="form-group">
+                    <br>
+                    <label class="col-sm-1 control-label">Total de Ventas</label>
+                    <div class="col-sm-2">
+                    <input type="text" style="text-align: center" id="tot" value="Q0.00" class="form-control" readonly>                      
+                    </div> 
+                    <img src="../dist/img/actualizar.png" width="30" height="31" onclick="CalcularTotal()"/>          
+                </div> 
+
+            </div>
+            <!-- /.box-body -->
+            </div>
+            <!-- /.box -->
+        </div>
+        <!-- /.col -->
+        </div>
+        <!-- /.row -->
+    </section>
+       
+    <!-- DataTables -->
+    <script src="~/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
+    <script src="~/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+
+    <!-- page script -->
+    <script>
+        $(function () {
+            $('#example1').DataTable( {
+                    "language": idioma_español
+                } );
+        });
+
+        var idioma_español = {
+                    "sProcessing":     "Procesando...",
+                    "sLengthMenu":     "Mostrar _MENU_ Registros",
+                    "sZeroRecords":    "No se encontraron resultados",
+                    "sEmptyTable":     "Ningún dato disponible en esta tabla",
+                    "sInfo":           "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+                    "sInfoEmpty":      "Mostrando registros del 0 al 0 de un total de 0 registros",
+                    "sInfoFiltered":   "(filtrado de un total de _MAX_ registros)",
+                    "sInfoPostFix":    "",
+                    "sSearch":         "Buscar:",
+                    "sUrl":            "",
+                    "sInfoThousands":  ",",
+                    "sLoadingRecords": "Cargando...",
+                    "oPaginate": {
+                        "sFirst":    "Primero",
+                        "sLast":     "Último",
+                        "sNext":     "Siguiente",
+                        "sPrevious": "Anterior"
+                    },
+                    "oAria": {
+                        "sSortAscending":  ": Activar para ordenar la columna de manera ascendente",
+                        "sSortDescending": ": Activar para ordenar la columna de manera descendente"
+                    }
+                }
+
+        function CalcularTotal () {
+            var subtotal = 0;
+            var total = 0;
+            $("#example1 TBODY TR").each(function () {
+                    var row = $(this);
+
+                    sub = row.find("TD").eq(4).html().split('Q')[1];
+                    subtotal = parseFloat(sub.replace(",", "."));
+
+                    //subtotal de PRECIO * CAntidad y Total de cada fila
+                    total = total + subtotal;
+                    //total += Number(subtotal);
+                    //console.log(b);
+                    //console.log(subtotal);
+                });
+
+                //Asignarle el valor al input
+                $("#tot").val("Q" + total);
+                console.log(total);          
+        }
+
+        function Delete(id){
+            var txt;
+            var r = confirm("Estas seguro que deseas eliminar esto?");
+            if (r == true) {
+                
+                $.ajax(
+                {
+                    type: "POST",
+                    url: '@Url.Action("Delete", "Venta")',
+                    data: {
+                        id: id
+                    },
+                    error: function (result) {
+                        alert("error");
+                    },
+                    success: function (result) {
+                        if (result == true) {
+                            var baseUrl="/Pedido";
+                            window.location.reload();
+                        }
+                        else {
+                            alert("Hay un problema, Intenta Despues!");
+                        }
+                    }
+                });
+            } 
+        }
+    </script>

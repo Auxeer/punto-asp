@@ -1,0 +1,227 @@
+    @model punto.Models.Producto
+
+    @{    
+    ViewData["Title"] = "Realizar Venta - ";    
+    } 
+
+
+    <!-- Content Header (Page header) -->
+    
+    <section class="content-header">
+        <h1>
+        Ventas
+        </h1>
+
+        <ol class="breadcrumb">
+        <li><a href="~/Home/Index"><i class="fa fa-dashboard"></i> Inicio </a></li>
+        <li><a href="~/Venta/Index"><i class="fa fa-circle-o-notch"></i> Ventas </a></li>
+        <li class="active">Agregar</li>
+        </ol>
+
+    </section>
+    <!-- Main content -->
+    <section class="content container-fluid">
+        <!-- Horizontal Form -->
+        <div class="box box-info">
+        <div class="box-header with-border">
+            <h3 class="box-title">Realizar Venta</h3>
+        </div>
+        <!-- /.box-header -->
+        <!-- form start -->
+        <form class="form-horizontal" method="post" action="">
+            <div class="box-body">       
+                <div class="form-group">
+                    <label for="" class="col-sm-1 control-label">Producto</label>
+                    <div class="col-sm-10">
+                            @Html.DropDownListFor(model => model.Id, Model.ProductoListItems, "Elegir Producto", new { @class = "form-control", id="selectlist"}) 
+                    </div>                      
+                    <input onclick="Ambas()" id="btnCreate" class="btn btn-success" value="Agregar" style="width:100px">
+                </div>                
+            </div>
+            <div class="box-body">
+            <table id="tPedidos" width="100%" class="table table-bordered table-responsive">
+                <thead>
+                <tr>                  
+                    <th style="text-align: center" width= "50%">Producto</th>
+                    <th style="text-align: center" width= "30%">Precio</th>
+                    <th style="text-align: center" width= "10%">Cantidad</th>
+                    <th style="text-align: center" width= "10%">Accion</th>                  
+                </tr>
+                </thead>
+                <tbody></tbody>        
+           </table>
+
+            <div class="form-group">
+            <br>
+            <label class="col-sm-1 control-label">Total</label>
+            <div class="col-sm-2">
+            <input type="text" style="text-align: center" id="tot" value="0" class="form-control" readonly>                      
+            </div> 
+            <img src="../dist/img/actualizar.png" width="30" height="31" onclick="CalcularTotal()"/>          
+            </div>        
+
+           </div>
+            <!-- /.box-body -->
+            <div class="box-footer">
+            <a href="./"><button type="button" class="btn btn-default">Cancelar</button></a>
+            <input onclick="Guardar()" id="btnSave" class="btn btn-info pull-right" value="Crear" style="width:100px">
+            </div>
+            <!-- /.box-footer -->
+        </form>
+        </div>
+        <!-- /.box -->
+    </section>
+                
+    <script type="text/javascript"> 
+    //Opcion para disabled la primera opcion del dropdownlist
+    $("#selectlist option:first-child").attr("disabled","disabled");   
+
+    //Funcion Eliminar Fila de la tabla
+    function Remove(button) { button.parentElement.parentElement.remove(); };
+
+    //Opcion Eliminar (( ABSTRAIDO A UNA FUNCION PARA TENER UNA INSTANCIA UNICA ))
+    function crearBotonEliminar () {
+        const eliminar = document.createElement("img");
+        eliminar.src = "../dist/img/eliminar.png";      
+        eliminar.style.width = '25px';
+        eliminar.style.height = "25px";
+        return eliminar;
+    }
+    //Opcion Cantidad (( ABSTRAIDO A UNA FUNCION PARA TENER UNA INSTANCIA UNICA ))
+    function crearBotonCantidad () {
+        const cantidad = document.createElement('input')
+        cantidad.type = 'number'
+        cantidad.style.width = '147px'
+        cantidad.style.height = '30px'
+        cantidad.value= '1'
+        cantidad.min = '1'
+        cantidad.style.textAlign = "center"
+        cantidad.className = 'form-control'
+        return cantidad;
+    }
+    function Ambas () {
+        Seleccionar(); 
+        //Delay para que ingrese los valores la funcion seleccionar
+        setTimeout(CalcularTotal, 100);  
+        CalcularTotal();    
+    }
+
+    function Seleccionar() {       
+        var id = $("#selectlist").val()
+        $.ajax({
+            type: "GET",
+            url: "/Venta/GetProduct?Id=" + id,
+            success: function (data) {
+                var tBody = $("#tPedidos > TBODY")[0];
+                var row = tBody.insertRow(-1);
+            
+                //Add Nombre cell. 
+                cell = $(row.insertCell(0));
+                cell.html(data.nombre);
+                $(cell).css({"text-align":"center"});
+
+                //Add Precio cell.
+                cell = $(row.insertCell(1));
+                cell.html("Q" + data.precio)
+                $(cell).css({"text-align":"center"});
+
+                //Add Cantidad cell
+                cell = $(row.insertCell(2));
+                cantidad = crearBotonCantidad();
+                cell.html(cantidad) 
+                $(cell).css({"width":"10%"}); 
+                cantidad.onchange = function(){
+                   CalcularTotal(); 
+                }          
+                
+                //Add Eliminar cell
+                cell = $(row.insertCell(3));
+                eliminar = crearBotonEliminar();
+                cell.html(eliminar);
+                $(cell).css({"width":"10%","text-align":"center"});
+                //Despues de mostrar-lo en el HTML
+                eliminar.onclick = function(){
+                Remove(this);
+                CalcularTotal();
+                };
+
+            }
+        });
+    };   
+
+    function Guardar() {
+            //Loop through the Table rows and build a JSON array.
+            var ventas = new Array();
+            //Fecha y Hora
+            var today = new Date();
+            var n = today.getTime();
+            var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+            var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+            var dateTime = date+' '+time;
+
+            $("#tPedidos TBODY TR").each(function () {
+                var row = $(this);
+                var venta = {};
+                venta.Producto = row.find("TD").eq(0).html();
+
+                pre = row.find("TD").eq(1).html();
+                venta.Precio = pre.split('Q')[1];
+
+                venta.Cantidad = row.find("TD").eq(2).find('input').val();
+
+                venta.Total = venta.Precio * venta.Cantidad;
+                venta.Cliente = "Brian";
+                venta.Fecha = dateTime;
+                
+                
+                ventas.push(venta);
+            }); 
+        
+            
+            //tot = $("#tot").val();  
+            //console.log("Total: " + tot);
+
+            //ventas[3].push(tot); 
+            //ventas.splice(3, 0, tot);
+                             
+ 
+            //Send the JSON array to Controller using AJAX.
+            $.ajax({
+                type: "POST",
+                url: "/Venta/InsertVentas",
+                data: JSON.stringify(ventas),
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: function () {
+                    alert("Venta realizada!");
+                    location.reload();
+                }
+            }
+            );
+            console.log(ventas);
+        };
+    
+    function CalcularTotal () {
+        var subtotal = 0;
+        var total = 0;
+        $("#tPedidos TBODY TR").each(function () {
+                var row = $(this);
+
+                //Valor de Precio
+                pre = row.find("TD").eq(1).html();
+                const Precio = pre.split('Q')[1];
+                //Valor de Cantidad
+                CantidadPedido = row.find("TD").eq(2).find('input').val();
+
+                //subtotal de PRECIO * CAntidad y Total de cada fila
+                subtotal = Precio * CantidadPedido;
+                total += Number(subtotal);
+                
+            });
+
+            //Asignarle el valor al input
+            $("#tot").val(total);
+            //console.log(total);          
+    }
+
+    </script> 

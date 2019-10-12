@@ -1,0 +1,59 @@
+    @model punto.Models.Cliente
+
+    @{    
+    ViewData["Title"] = "Modificar Cliente - ";    
+    }   
+
+    <section class="content-header">
+        <h1>
+        Clientes
+        </h1>
+    </section>
+    <!-- Main content -->
+    <section class="content container-fluid">
+        <!-- Horizontal Form -->
+        <div class="box box-info">
+        <div class="box-header with-border">
+            <h3 class="box-title">Modificar Cliente</h3>
+        </div>
+        <!-- /.box-header -->
+        <!-- form start -->
+        <form class="form-horizontal" method="post" action="/Cliente/UpdateCliente">
+            <div class="box-body">
+            <div class="form-group">
+                <label for="inputEmail3" class="col-sm-2 control-label">Nombres</label>
+                <div class="col-sm-10">
+                <input type="text" class="form-control" name="Nombre" placeholder="Nombres" value="@Model.Nombre" required>
+                </div>
+            </div>
+             <div class="form-group">
+                <label for="inputEmail3" class="col-sm-2 control-label">Apellidos</label>
+                <div class="col-sm-10">
+                <input type="text" class="form-control" name="Apellido" placeholder="Apellidos" value="@Model.Apellido" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="inputPassword3" class="col-sm-2 control-label">Nit</label>
+                <div class="col-sm-10">
+                <input type="text" class="form-control" name="Nit" placeholder="Nit" value="@Model.Nit" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="inputPassword3" class="col-sm-2 control-label">Direccion</label>
+                <div class="col-sm-10">
+                <input type="text" class="form-control" name="Direccion" placeholder="Direccion" value="@Model.Direccion" required>
+            </div>
+            </div>
+            
+            <input type="hidden" name="IdCliente" value="@Model.IdCliente"/>
+            </div>
+            <!-- /.box-body -->
+            <div class="box-footer">
+            <button type="submit" class="btn btn-default">Cancelar</button>
+            <button type="submit" class="btn btn-info pull-right">Actualizar</button>
+            </div>
+            <!-- /.box-footer -->
+        </form>
+        </div>
+        <!-- /.box -->
+    </section>

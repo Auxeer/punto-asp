@@ -1,0 +1,65 @@
+D:\Users\brian\Downloads\punto\bin\Debug\netcoreapp2.2\punto.deps.json
+D:\Users\brian\Downloads\punto\bin\Debug\netcoreapp2.2\punto.runtimeconfig.json
+D:\Users\brian\Downloads\punto\bin\Debug\netcoreapp2.2\punto.runtimeconfig.dev.json
+d:\Users\brian\Downloads\punto\bin\Debug\netcoreapp2.2\punto.dll
+d:\Users\brian\Downloads\punto\bin\Debug\netcoreapp2.2\punto.pdb
+D:\Users\brian\Downloads\punto\bin\Debug\netcoreapp2.2\punto.Views.dll
+d:\Users\brian\Downloads\punto\bin\Debug\netcoreapp2.2\punto.Views.pdb
+d:\Users\brian\Downloads\punto\obj\Debug\netcoreapp2.2\punto.csprojAssemblyReference.cache
+d:\Users\brian\Downloads\punto\obj\Debug\netcoreapp2.2\punto.csproj.CoreCompileInputs.cache
+d:\Users\brian\Downloads\punto\obj\Debug\netcoreapp2.2\punto.RazorAssemblyInfo.cache
+d:\Users\brian\Downloads\punto\obj\Debug\netcoreapp2.2\punto.RazorAssemblyInfo.cs
+d:\Users\brian\Downloads\punto\obj\Debug\netcoreapp2.2\punto.AssemblyInfoInputs.cache
+d:\Users\brian\Downloads\punto\obj\Debug\netcoreapp2.2\punto.AssemblyInfo.cs
+d:\Users\brian\Downloads\punto\obj\Debug\netcoreapp2.2\punto.TagHelpers.input.cache
+d:\Users\brian\Downloads\punto\obj\Debug\netcoreapp2.2\punto.TagHelpers.output.cache
+d:\Users\brian\Downloads\punto\obj\Debug\netcoreapp2.2\punto.RazorCoreGenerate.cache
+d:\Users\brian\Downloads\punto\obj\Debug\netcoreapp2.2\punto.RazorTargetAssemblyInfo.cache
+d:\Users\brian\Downloads\punto\obj\Debug\netcoreapp2.2\punto.RazorTargetAssemblyInfo.cs
+d:\Users\brian\Downloads\punto\obj\Debug\netcoreapp2.2\punto.Views.pdb
+d:\Users\brian\Downloads\punto\obj\Debug\netcoreapp2.2\punto.dll
+d:\Users\brian\Downloads\punto\obj\Debug\netcoreapp2.2\punto.pdb
+D:\Users\brian\Downloads\punto\obj\Debug\netcoreapp2.2\punto.csproj.CopyComplete
+d:\Users\brian\Downloads\punto\obj\Debug\netcoreapp2.2\Razor\Views\Home\Index.g.cshtml.cs
+d:\Users\brian\Downloads\punto\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_Layout.g.cshtml.cs
+d:\Users\brian\Downloads\punto\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_MainMenu.g.cshtml.cs
+d:\Users\brian\Downloads\punto\obj\Debug\netcoreapp2.2\Razor\Views\_ViewStart.g.cshtml.cs
+D:\Users\brian\Documents\ASP .net\punto\bin\Debug\netcoreapp2.2\punto.deps.json
+D:\Users\brian\Documents\ASP .net\punto\bin\Debug\netcoreapp2.2\punto.runtimeconfig.json
+D:\Users\brian\Documents\ASP .net\punto\bin\Debug\netcoreapp2.2\punto.runtimeconfig.dev.json
+d:\Users\brian\Documents\ASP .net\punto\bin\Debug\netcoreapp2.2\punto.dll
+d:\Users\brian\Documents\ASP .net\punto\bin\Debug\netcoreapp2.2\punto.pdb
+D:\Users\brian\Documents\ASP .net\punto\bin\Debug\netcoreapp2.2\punto.Views.dll
+d:\Users\brian\Documents\ASP .net\punto\bin\Debug\netcoreapp2.2\punto.Views.pdb
+d:\Users\brian\Documents\ASP .net\punto\obj\Debug\netcoreapp2.2\punto.csprojAssemblyReference.cache
+d:\Users\brian\Documents\ASP .net\punto\obj\Debug\netcoreapp2.2\punto.csproj.CoreCompileInputs.cache
+d:\Users\brian\Documents\ASP .net\punto\obj\Debug\netcoreapp2.2\punto.RazorAssemblyInfo.cache
+d:\Users\brian\Documents\ASP .net\punto\obj\Debug\netcoreapp2.2\punto.RazorAssemblyInfo.cs
+d:\Users\brian\Documents\ASP .net\punto\obj\Debug\netcoreapp2.2\punto.AssemblyInfoInputs.cache
+d:\Users\brian\Documents\ASP .net\punto\obj\Debug\netcoreapp2.2\punto.AssemblyInfo.cs
+d:\Users\brian\Documents\ASP .net\punto\obj\Debug\netcoreapp2.2\punto.TagHelpers.input.cache
+d:\Users\brian\Documents\ASP .net\punto\obj\Debug\netcoreapp2.2\punto.TagHelpers.output.cache
+d:\Users\brian\Documents\ASP .net\punto\obj\Debug\netcoreapp2.2\punto.RazorCoreGenerate.cache
+d:\Users\brian\Documents\ASP .net\punto\obj\Debug\netcoreapp2.2\Razor\Views\Account\Login.g.cshtml.cs
+d:\Users\brian\Documents\ASP .net\punto\obj\Debug\netcoreapp2.2\Razor\Views\Home\Index.g.cshtml.cs
+d:\Users\brian\Documents\ASP .net\punto\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_Layout.g.cshtml.cs
+d:\Users\brian\Documents\ASP .net\punto\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_MainMenu.g.cshtml.cs
+d:\Users\brian\Documents\ASP .net\punto\obj\Debug\netcoreapp2.2\Razor\Views\_ViewStart.g.cshtml.cs
+d:\Users\brian\Documents\ASP .net\punto\obj\Debug\netcoreapp2.2\punto.RazorTargetAssemblyInfo.cache
+d:\Users\brian\Documents\ASP .net\punto\obj\Debug\netcoreapp2.2\punto.RazorTargetAssemblyInfo.cs
+d:\Users\brian\Documents\ASP .net\punto\obj\Debug\netcoreapp2.2\punto.Views.pdb
+d:\Users\brian\Documents\ASP .net\punto\obj\Debug\netcoreapp2.2\punto.dll
+d:\Users\brian\Documents\ASP .net\punto\obj\Debug\netcoreapp2.2\punto.pdb
+D:\Users\brian\Documents\ASP .net\punto\obj\Debug\netcoreapp2.2\punto.csproj.CopyComplete
+d:\Users\brian\Documents\ASP .net\punto\obj\Debug\netcoreapp2.2\Razor\Views\Producto\Create.g.cshtml.cs
+d:\Users\brian\Documents\ASP .net\punto\obj\Debug\netcoreapp2.2\Razor\Views\Producto\Index.g.cshtml.cs
+d:\Users\brian\Documents\ASP .net\punto\obj\Debug\netcoreapp2.2\Razor\Views\Producto\Update.g.cshtml.cs
+d:\Users\brian\Documents\ASP .net\punto\obj\Debug\netcoreapp2.2\Razor\Views\Cliente\Index.g.cshtml.cs
+d:\Users\brian\Documents\ASP .net\punto\obj\Debug\netcoreapp2.2\Razor\Views\Cliente\Create.g.cshtml.cs
+d:\Users\brian\Documents\ASP .net\punto\obj\Debug\netcoreapp2.2\Razor\Views\Cliente\Update.g.cshtml.cs
+d:\Users\brian\Documents\ASP .net\punto\obj\Debug\netcoreapp2.2\Razor\Views\Pedido\Create.g.cshtml.cs
+d:\Users\brian\Documents\ASP .net\punto\obj\Debug\netcoreapp2.2\Razor\Views\Pedido\Index.g.cshtml.cs
+d:\Users\brian\Documents\ASP .net\punto\obj\Debug\netcoreapp2.2\Razor\Views\Pedido\_test.g.cshtml.cs
+d:\Users\brian\Documents\ASP .net\punto\obj\Debug\netcoreapp2.2\Razor\Views\Venta\Create.g.cshtml.cs
+d:\Users\brian\Documents\ASP .net\punto\obj\Debug\netcoreapp2.2\Razor\Views\Venta\Index.g.cshtml.cs
+d:\Users\brian\Documents\ASP .net\punto\obj\Debug\netcoreapp2.2\Razor\Views\Venta\_test.g.cshtml.cs

@@ -1,0 +1,6 @@
+@model punto.Models.Cliente
+
+                    <label for="" class="col-sm-1 control-label">Producto</label>
+                    <div class="col-sm-10">
+                            @Html.DropDownListFor(model => model.IdCliente, Model.ClienteListItems , "Elegir Cliente", new { @class = "form-control", id="selectlist2"}) 
+                    </div>
